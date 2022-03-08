@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State var searText = ""
+    
     var body: some View {
-        Text("Search")
+        ScrollView(showsIndicators: false) {
+            SearchBar(text: $searText)
+                .padding()
+            
+            PostGridView()
+        }
     }
 }
 
