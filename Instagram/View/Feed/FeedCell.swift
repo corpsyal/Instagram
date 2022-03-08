@@ -57,7 +57,7 @@ struct FeedCell: View {
                 })
             }
             .padding(.leading, 8)
-            .foregroundColor(.black)
+            .foregroundColor(.primary)
             
             Text("3 likes")
                 .font(.system(size: 14, weight: .semibold))
@@ -72,15 +72,17 @@ struct FeedCell: View {
             
             Text("2d")
                 .font(.system(size: 14))
-                .foregroundColor(Color.gray)
+                .foregroundColor(.secondary)
                 .padding(.leading, 8)
             
-        }.padding(.bottom)
+        }
     }
 }
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
         FeedCell()
+            .previewDevice("iPhone 12")
+            .preferredColorScheme(.light)
     }
 }
