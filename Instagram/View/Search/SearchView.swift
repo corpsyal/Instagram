@@ -9,13 +9,22 @@ import SwiftUI
 
 struct SearchView: View {
     @State var searText = ""
+    @State var isSearchMode = false
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            SearchBar(text: $searText)
+        VStack {
+            SearchBar(text: $searText, isEditing: $isSearchMode)
                 .padding()
-            
-            PostGridView()
+
+            ScrollView(showsIndicators: false) {
+
+                if (isSearchMode){
+                    UserListView()
+                } else {
+                    PostGridView()
+                }
+                                
+            }
         }
     }
 }
