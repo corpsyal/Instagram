@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9323C6EC27E53578009EBDA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323C6EB27E53578009EBDA5 /* LoginView.swift */; };
+		936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936425CF27E63FE70087DA3E /* CustomTextField.swift */; };
 		938021C227D7A0CC00AC2EB2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938021C127D7A0CC00AC2EB2 /* SearchBar.swift */; };
+		93AC298527DB9A7400F651DD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298427DB9A7400F651DD /* Extensions.swift */; };
+		93AC298727DD036600F651DD /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298627DD036600F651DD /* NotificationCell.swift */; };
+		93AC298927DD0E4B00F651DD /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298827DD0E4B00F651DD /* ProfileHeaderView.swift */; };
+		93AC298B27DD192700F651DD /* ProfileUserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298A27DD192700F651DD /* ProfileUserStatView.swift */; };
+		93AC298D27DD1F9F00F651DD /* ProfileActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298C27DD1F9F00F651DD /* ProfileActionButtonView.swift */; };
+		93AC298F27DE575F00F651DD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298E27DE575F00F651DD /* ImagePicker.swift */; };
 		93AF814F27D51DD60098B134 /* InstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF814E27D51DD60098B134 /* InstagramApp.swift */; };
 		93AF815127D51DD60098B134 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF815027D51DD60098B134 /* ContentView.swift */; };
 		93AF815327D51DD70098B134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93AF815227D51DD70098B134 /* Assets.xcassets */; };
@@ -22,10 +30,19 @@
 		93B164CB27D7AA31006F4C61 /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B164CA27D7AA31006F4C61 /* PostGridView.swift */; };
 		93B164CD27D7BB1C006F4C61 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B164CC27D7BB1C006F4C61 /* UserListView.swift */; };
 		93B164CF27D7BB24006F4C61 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B164CE27D7BB24006F4C61 /* UserCell.swift */; };
+		93C47ADA27E7C49E0091FA2F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C47AD927E7C49E0091FA2F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9323C6EB27E53578009EBDA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		936425CF27E63FE70087DA3E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		938021C127D7A0CC00AC2EB2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		93AC298427DB9A7400F651DD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		93AC298627DD036600F651DD /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		93AC298827DD0E4B00F651DD /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		93AC298A27DD192700F651DD /* ProfileUserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserStatView.swift; sourceTree = "<group>"; };
+		93AC298C27DD1F9F00F651DD /* ProfileActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButtonView.swift; sourceTree = "<group>"; };
+		93AC298E27DE575F00F651DD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		93AF814B27D51DD60098B134 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AF814E27D51DD60098B134 /* InstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramApp.swift; sourceTree = "<group>"; };
 		93AF815027D51DD60098B134 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +58,7 @@
 		93B164CA27D7AA31006F4C61 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		93B164CC27D7BB1C006F4C61 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		93B164CE27D7BB24006F4C61 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		93C47AD927E7C49E0091FA2F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +121,9 @@
 		93AF815D27D51F1E0098B134 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				93AC298427DB9A7400F651DD /* Extensions.swift */,
+				93AC298E27DE575F00F651DD /* ImagePicker.swift */,
+				936425CF27E63FE70087DA3E /* CustomTextField.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -159,6 +180,8 @@
 		93AF816827D5236D0098B134 /* Autentification */ = {
 			isa = PBXGroup;
 			children = (
+				9323C6EB27E53578009EBDA5 /* LoginView.swift */,
+				93C47AD927E7C49E0091FA2F /* RegistrationView.swift */,
 			);
 			path = Autentification;
 			sourceTree = "<group>";
@@ -167,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				93AF817527D524490098B134 /* NotificationsView.swift */,
+				93AC298627DD036600F651DD /* NotificationCell.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -200,6 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				93AF817327D5243A0098B134 /* ProfileView.swift */,
+				93AC298827DD0E4B00F651DD /* ProfileHeaderView.swift */,
+				93AC298A27DD192700F651DD /* ProfileUserStatView.swift */,
+				93AC298C27DD1F9F00F651DD /* ProfileActionButtonView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -286,15 +313,24 @@
 				93B164CF27D7BB24006F4C61 /* UserCell.swift in Sources */,
 				93AF817227D5241A0098B134 /* UploadPostView.swift in Sources */,
 				93B164CB27D7AA31006F4C61 /* PostGridView.swift in Sources */,
+				93AC298B27DD192700F651DD /* ProfileUserStatView.swift in Sources */,
 				93AF815127D51DD60098B134 /* ContentView.swift in Sources */,
 				93AF814F27D51DD60098B134 /* InstagramApp.swift in Sources */,
+				93AC298F27DE575F00F651DD /* ImagePicker.swift in Sources */,
 				93AF817827D524D50098B134 /* SearchView.swift in Sources */,
+				93AC298927DD0E4B00F651DD /* ProfileHeaderView.swift in Sources */,
 				93AF817427D5243A0098B134 /* ProfileView.swift in Sources */,
+				93C47ADA27E7C49E0091FA2F /* RegistrationView.swift in Sources */,
 				93B164CD27D7BB1C006F4C61 /* UserListView.swift in Sources */,
 				93AF816627D5226F0098B134 /* MainTabView.swift in Sources */,
 				938021C227D7A0CC00AC2EB2 /* SearchBar.swift in Sources */,
+				936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */,
 				93AF817627D524490098B134 /* NotificationsView.swift in Sources */,
+				93AC298D27DD1F9F00F651DD /* ProfileActionButtonView.swift in Sources */,
 				93AF817A27D52CC80098B134 /* FeedCell.swift in Sources */,
+				93AC298727DD036600F651DD /* NotificationCell.swift in Sources */,
+				9323C6EC27E53578009EBDA5 /* LoginView.swift in Sources */,
+				93AC298527DB9A7400F651DD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
