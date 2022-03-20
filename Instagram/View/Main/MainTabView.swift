@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    init(){
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.backgroundColor = .systemBackground
+
+        // without scroll
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        // when scroll
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+
+        UITabBar.appearance().isTranslucent = false
+    }
     var body: some View {
         NavigationView {
             TabView {
@@ -45,21 +57,28 @@ struct MainTabView: View {
                             
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack(spacing: 24) {
-                            Image(systemName: "plus.square")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .font(Font.title.weight(.semibold))
-                            
-                            Image(systemName: "heart")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .font(Font.title.weight(.semibold))
-                            
-                            Image(systemName: "paperplane")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .font(Font.title.weight(.semibold))
+                        HStack(spacing: 20) {
+                            Button(action: {}) {
+                                Image(systemName: "plus.square")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                    .font(Font.title.weight(.semibold))
+                                    .tint(Color.primary)
+                            }
+                            Button(action: {}) {
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                    .font(Font.title.weight(.semibold))
+                                    .tint(Color.primary)
+                            }
+                            Button(action: {}) {
+                                Image(systemName: "paperplane")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                    .font(Font.title.weight(.semibold))
+                                    .tint(Color.primary)
+                            }
                         }
                     }
     //                ToolbarItem(placement: .principal) {
