@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    @EnvironmentObject private var auth: AuthViewModel
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -33,6 +35,13 @@ struct ProfileHeaderView: View {
             Text("Une description de test")
                 .font(.system(size: 15))
 //                .padding(.vertical, 8)
+            
+            Button {
+                auth.signout()
+            } label: {
+                Text("Logout")
+            }
+
             
             Spacer()
             

@@ -17,7 +17,7 @@ struct NotificationsView: View {
             }
             .padding(.top)
             .padding(.horizontal, 16)
-        }
+        }.modifier(DefaultNavigationBar())
     }
 }
 

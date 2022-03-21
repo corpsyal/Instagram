@@ -25,7 +25,7 @@ struct SearchView: View {
                 }
                                 
             }
-        }
+        }.modifier(DefaultNavigationBar())
     }
 }
 

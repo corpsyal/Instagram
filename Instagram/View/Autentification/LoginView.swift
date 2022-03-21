@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
+    @State private var email = "toto@test.fr"
+    @State private var password = "qwertz"
+    @EnvironmentObject private var auth: AuthViewModel
     
     var body: some View {
         NavigationView {
@@ -48,7 +49,7 @@ struct LoginView: View {
                     }
                     
                     Button {
-                        
+                        auth.login(email: email, password: password)
                     } label: {
                         Text("Login")
                             .font(.system(size: 15, weight: .semibold))
@@ -76,8 +77,8 @@ struct LoginView: View {
 
                 }
                 .padding(.horizontal, 32)
-                .padding(.top, -50)
-            }
+                .padding(.top, 20)
+            }.navigationBarHidden(true)
         }
     }
 }

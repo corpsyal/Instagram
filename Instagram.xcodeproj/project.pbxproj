@@ -10,6 +10,8 @@
 		9323C6EC27E53578009EBDA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323C6EB27E53578009EBDA5 /* LoginView.swift */; };
 		936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936425CF27E63FE70087DA3E /* CustomTextField.swift */; };
 		938021C227D7A0CC00AC2EB2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938021C127D7A0CC00AC2EB2 /* SearchBar.swift */; };
+		93A04CC027E8E9A6009B271A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A04CBF27E8E9A6009B271A /* AuthViewModel.swift */; };
+		93A04CC227E90516009B271A /* DefaultNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A04CC127E90516009B271A /* DefaultNavigationBar.swift */; };
 		93AC298527DB9A7400F651DD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298427DB9A7400F651DD /* Extensions.swift */; };
 		93AC298727DD036600F651DD /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298627DD036600F651DD /* NotificationCell.swift */; };
 		93AC298927DD0E4B00F651DD /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC298827DD0E4B00F651DD /* ProfileHeaderView.swift */; };
@@ -44,6 +46,8 @@
 		9323C6EB27E53578009EBDA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		936425CF27E63FE70087DA3E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		938021C127D7A0CC00AC2EB2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		93A04CBF27E8E9A6009B271A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		93A04CC127E90516009B271A /* DefaultNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigationBar.swift; sourceTree = "<group>"; };
 		93AC298427DB9A7400F651DD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		93AC298627DD036600F651DD /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		93AC298827DD0E4B00F651DD /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				93AC298427DB9A7400F651DD /* Extensions.swift */,
 				93AC298E27DE575F00F651DD /* ImagePicker.swift */,
 				936425CF27E63FE70087DA3E /* CustomTextField.swift */,
+				93A04CC127E90516009B271A /* DefaultNavigationBar.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 		93AF815F27D51F280098B134 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				93A04CBF27E8E9A6009B271A /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 				93AC298B27DD192700F651DD /* ProfileUserStatView.swift in Sources */,
 				93AF815127D51DD60098B134 /* ContentView.swift in Sources */,
 				93AF814F27D51DD60098B134 /* InstagramApp.swift in Sources */,
+				93A04CC227E90516009B271A /* DefaultNavigationBar.swift in Sources */,
 				93AC298F27DE575F00F651DD /* ImagePicker.swift in Sources */,
 				93AF817827D524D50098B134 /* SearchView.swift in Sources */,
 				93AC298927DD0E4B00F651DD /* ProfileHeaderView.swift in Sources */,
@@ -354,6 +361,7 @@
 				938021C227D7A0CC00AC2EB2 /* SearchBar.swift in Sources */,
 				936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */,
 				93AF817627D524490098B134 /* NotificationsView.swift in Sources */,
+				93A04CC027E8E9A6009B271A /* AuthViewModel.swift in Sources */,
 				93AC298D27DD1F9F00F651DD /* ProfileActionButtonView.swift in Sources */,
 				93AF817A27D52CC80098B134 /* FeedCell.swift in Sources */,
 				93AC298727DD036600F651DD /* NotificationCell.swift in Sources */,

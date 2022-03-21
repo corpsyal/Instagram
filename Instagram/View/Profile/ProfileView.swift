@@ -16,7 +16,7 @@ struct ProfileView: View {
             
             PostGridView()
                 .padding(.top)
-        }
+        }.modifier(DefaultNavigationBar())
         
         
     }

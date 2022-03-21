@@ -15,7 +15,7 @@ struct FeedView: View {
                     FeedCell()
                 }
             }.padding(.top)
-        }
+        }.modifier(DefaultNavigationBar())
         
     }
 }
