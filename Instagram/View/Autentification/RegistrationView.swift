@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @State private var email = ""
-    @State private var username = ""
-    @State private var fullName = ""
-    @State private var password = ""
+    @State private var email = "toto@test.fr"
+    @State private var username = "userNameDeTest"
+    @State private var fullName = "fullNameDeTest"
+    @State private var password = "password"
+    
+    @EnvironmentObject private var auth: AuthViewModel
+    
     @Environment(\.presentationMode) private var mode
     
     var body: some View {
@@ -52,7 +55,7 @@ struct RegistrationView: View {
                 
                     
                     Button {
-                        
+                        auth.register(email: email, password: password, userName: username, fullName: fullName)
                     } label: {
                         Text("Sign up")
                             .font(.system(size: 15, weight: .semibold))

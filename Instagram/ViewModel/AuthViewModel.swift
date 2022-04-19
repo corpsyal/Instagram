@@ -7,16 +7,20 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 
 class AuthViewModel: ObservableObject {
     
     @Published var userSession: User?
+    @Published var userInfos: UserInfos?
+
     
     static let shared = AuthViewModel()
     
     init(){
         print("AuthViewModel init !")
         userSession = Auth.auth().currentUser
+        fetchUserInfos()
     }
     
     func login(email: String, password: String){
@@ -29,13 +33,70 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = authResult?.user else { return }
-            self.userSession = user
+            Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(user.uid).getDocument { snapshot, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                self.userSession = user
+                self.fetchUserInfos()
+            }
+            
+        }
+    }
+    
+    func fetchUserInfos(){
+        guard let uid = self.userSession?.uid else { return }
+        Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(uid).getDocument { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            let userInfos = UserInfos(snapshot?.data() ?? [:])
+            self.userInfos = userInfos
+        }
+    }
+
+    
+    func register(email: String, password: String, userName: String, fullName: String){
+//        Auth.auth()
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let user = authResult?.user else { return }
+            
+            let data: [String: String] = ["email": email, "userName": userName, "fullName": fullName]
+            
+            Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(user.uid).setData(data) { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                self.userSession = user
+            }
         }
     }
     
     func signout(){
         userSession = nil
         try? Auth.auth().signOut()
+    }
+    
+    func updateProfilePicture(urlString: String, completion: @escaping () -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(uid).setData(["profilePicture": urlString], merge: true) { error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            completion()
+        }
     }
     
 }

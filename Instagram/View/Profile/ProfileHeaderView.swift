@@ -9,15 +9,46 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     @EnvironmentObject private var auth: AuthViewModel
+    @State private var showImagePicker = false
+    @State private var selectedImage: ImageFromPicker?
+    
+    func printv(_ data: Any) -> some View {
+        print(data)
+        return EmptyView()
+    }
+
+    
+    private var ProfilePicture: Image  {
+        guard let imageData = auth.userInfos?.profilePictureData else {
+            return Image("joker")
+        }
+        
+        return Image(uiImage: UIImage(data: imageData)!)
+        
+    }
+    
+    func uploadNewImage(){
+        guard let image = selectedImage else { return }
+        ImageUploader.uploadImage(image: image) { imageUrl in
+            auth.updateProfilePicture(urlString: imageUrl) {
+                auth.fetchUserInfos()
+            }
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Image("joker")
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .scaledToFit()
-                    .clipShape(Circle())
+                Button {
+                    showImagePicker = true
+                } label: {
+                    ProfilePicture
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .scaledToFit()
+                        .clipShape(Circle())
+                }
+
                 
                 Spacer()
                 
@@ -45,13 +76,16 @@ struct ProfileHeaderView: View {
             
             Spacer()
             
-            ProfileActionButtonView(isCurrentUser: false)
+            ProfileActionButtonView(isCurrentUser: true)
 //            .border(Color.primary, width: 0.5)
 //            .cornerRadius(2)
 
+        }.sheet(isPresented: $showImagePicker, onDismiss: {
+            uploadNewImage()
+        }) {
+            ImagePicker(image: $selectedImage)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-//        .background(Color.red)
+
     }
 }
 

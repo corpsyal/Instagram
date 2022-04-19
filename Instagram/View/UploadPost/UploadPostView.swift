@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UploadPostView: View {
-    @State private var selectedImage: UIImage?
+    @State private var selectedImage: ImageFromPicker?
     @State private var postImage: Image?
     @State private var caption: String = ""
     @State private var presentImagePicker = false
@@ -28,7 +28,7 @@ struct UploadPostView: View {
                 }
             } else {
                 HStack(alignment: .top) {
-                    Image(uiImage: selectedImage!)
+                    Image(uiImage: selectedImage!.uiImage)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 80, height: 80)
