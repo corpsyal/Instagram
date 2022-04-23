@@ -11,8 +11,12 @@ import FirebaseFirestore
 
 class AuthViewModel: ObservableObject {
     
-    @Published var userSession: User?
-    @Published var userInfos: UserInfos?
+    @Published var userSession: FirebaseAuth.User?
+    @Published var userInfos: User? {
+        didSet {
+            print("DIDSET", userInfos)
+        }
+    }
 
     
     static let shared = AuthViewModel()
@@ -52,8 +56,10 @@ class AuthViewModel: ObservableObject {
                 print(error.localizedDescription)
                 return
             }
-            let userInfos = UserInfos(snapshot?.data() ?? [:])
-            self.userInfos = userInfos
+            
+            var user = try! snapshot?.data(as: User.self)
+            user?.initProfilePicture()
+            self.userInfos = user
         }
     }
 
