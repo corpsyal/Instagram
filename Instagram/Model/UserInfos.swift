@@ -18,7 +18,7 @@ struct UserInfos {
         fetchProfilePicture()
     }
     
-     mutating func fetchProfilePicture(){
+      mutating func fetchProfilePicture(){
         guard let url = profilePictureUrl else { return }
         if let data = try? Data(contentsOf: URL(string: url)!) {
             profilePictureData = data

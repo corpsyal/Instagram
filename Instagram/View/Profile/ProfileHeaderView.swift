@@ -44,8 +44,8 @@ struct ProfileHeaderView: View {
                 } label: {
                     ProfilePicture
                         .resizable()
+                        .scaledToFill()
                         .frame(width: 80, height: 80)
-                        .scaledToFit()
                         .clipShape(Circle())
                 }
 
