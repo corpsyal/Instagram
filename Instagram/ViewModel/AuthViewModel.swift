@@ -37,7 +37,7 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = authResult?.user else { return }
-            Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(user.uid).getDocument { snapshot, error in
+            FIRESTORE_USERS_COLLECTION.document(user.uid).getDocument { snapshot, error in
                 if let error = error {
                     print(error.localizedDescription)
                     return
@@ -51,7 +51,7 @@ class AuthViewModel: ObservableObject {
     
     func fetchUserInfos(){
         guard let uid = self.userSession?.uid else { return }
-        Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(uid).getDocument { snapshot, error in
+        FIRESTORE_USERS_COLLECTION.document(uid).getDocument { snapshot, error in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -74,9 +74,9 @@ class AuthViewModel: ObservableObject {
             
             guard let user = authResult?.user else { return }
             
-            let data: [String: String] = ["email": email, "userName": userName, "fullName": fullName]
+            let data: [String: String] = ["email": email.lowercased(), "userName": userName, "fullName": fullName]
             
-            Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(user.uid).setData(data) { error in
+            FIRESTORE_USERS_COLLECTION.document(user.uid).setData(data) { error in
                 if let error = error {
                     print(error.localizedDescription)
                     return
@@ -95,7 +95,7 @@ class AuthViewModel: ObservableObject {
     func updateProfilePicture(urlString: String, completion: @escaping () -> Void){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        Firestore.firestore().collection(FIRESTORE_USERS_PATH).document(uid).setData(["profilePicture": urlString], merge: true) { error in
+        FIRESTORE_USERS_COLLECTION.document(uid).setData(["profilePicture": urlString], merge: true) { error in
             if let error = error {
                 print(error.localizedDescription)
                 return

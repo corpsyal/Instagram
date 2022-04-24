@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @State var searText = ""
     @State var isSearchMode = false
+    @StateObject var searchViewModel = SearchViewModel()
     
     var body: some View {
         VStack {
@@ -17,9 +18,8 @@ struct SearchView: View {
                 .padding()
 
             ScrollView(showsIndicators: false) {
-
                 if (isSearchMode){
-                    UserListView()
+                    UserListView(users: searchViewModel.filterUsers(query: searText))
                 } else {
                     PostGridView()
                 }

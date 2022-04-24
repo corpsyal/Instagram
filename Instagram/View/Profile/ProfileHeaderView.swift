@@ -43,10 +43,7 @@ struct ProfileHeaderView: View {
                     showImagePicker = true
                 } label: {
                     ProfilePicture
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 80, height: 80)
-                        .clipShape(Circle())
+                        .profileImageModifier(width: 80, height: 80)
                 }
 
                 

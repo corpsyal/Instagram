@@ -5,5 +5,6 @@
 //  Created by Anthony Lahlah on 10.04.22.
 //
 
+import Firebase
 
-let FIRESTORE_USERS_PATH = "users"
+let FIRESTORE_USERS_COLLECTION = Firestore.firestore().collection("users")

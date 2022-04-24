@@ -44,6 +44,7 @@
 		93DCCE0228145CE50084286A /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 93DCCE0128145CE50084286A /* FirebaseFunctions */; };
 		93DCCE0428145CE50084286A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 93DCCE0328145CE50084286A /* FirebaseMessaging */; };
 		93DCCE0628145CE50084286A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 93DCCE0528145CE50084286A /* FirebaseStorage */; };
+		93DCCE08281488930084286A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCCE07281488930084286A /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		93B164CE27D7BB24006F4C61 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		93C47AD927E7C49E0091FA2F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		93C47ADD27E7D5EC0091FA2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		93DCCE07281488930084286A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				93A04CBF27E8E9A6009B271A /* AuthViewModel.swift */,
+				93DCCE07281488930084286A /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				93AF817627D524490098B134 /* NotificationsView.swift in Sources */,
 				93A04CC027E8E9A6009B271A /* AuthViewModel.swift in Sources */,
 				93AC298D27DD1F9F00F651DD /* ProfileActionButtonView.swift in Sources */,
+				93DCCE08281488930084286A /* SearchViewModel.swift in Sources */,
 				937F2A69280F12F50063EC25 /* User.swift in Sources */,
 				93AF817A27D52CC80098B134 /* FeedCell.swift in Sources */,
 				93AC298727DD036600F651DD /* NotificationCell.swift in Sources */,
