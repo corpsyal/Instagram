@@ -53,9 +53,9 @@ class AuthViewModel: ObservableObject {
                 return
             }
             
-            var user = try! snapshot?.data(as: User.self)
+            self.userInfos = try! snapshot?.data(as: User.self)
 //            user?.initProfilePicture()
-            self.userInfos = user
+//            self.userInfos = user
         }
     }
 

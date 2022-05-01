@@ -11,11 +11,12 @@ import FirebaseFirestoreSwift
 
 struct User: Identifiable, Decodable {
     let email: String
-    let fullName: String
+    var fullName: String
     let userName: String
     var profilePicture: String?
     var profilePictureData: Data?
     @DocumentID var id: String?
+    var isFollowed: Bool?
     
     var isCurrentUser: Bool {
         return AuthViewModel.shared.userInfos?.id == id

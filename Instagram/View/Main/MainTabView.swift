@@ -27,7 +27,7 @@ struct MainTabView: View {
     
     
     var body: some View {
-        if auth.userInfos != nil {
+        
             TabView {
                 NavigationView(content: {
                     FeedView()
@@ -54,13 +54,15 @@ struct MainTabView: View {
                 }
                 
                 NavigationView(content: {
-                    ProfileView(user: auth.userInfos!)
+                    if auth.userInfos != nil {
+                        ProfileView(user: auth.userInfos!)
+                    }
                 }).tabItem {
                     Image(systemName: "person")
                 }
             }
             .accentColor(.primary)
-        }
+        
     }
 }
 

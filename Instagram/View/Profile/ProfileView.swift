@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var user: User
+//    let user: User
+    @ObservedObject var profileViewModel: ProfileViewModel
+    
+    init(user: User){
+//        self.user = user
+        self.profileViewModel = ProfileViewModel(user: user)
+    }
     
     var body: some View {
         ScrollView {
-            ProfileHeaderView(user: user)
+            ProfileHeaderView(viewModel: profileViewModel)
                 .padding(.horizontal)
                 .padding(.top)
             

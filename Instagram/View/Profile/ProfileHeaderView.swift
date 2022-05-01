@@ -9,7 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileHeaderView: View {
-    var user: User
+//    var user: User
+    @ObservedObject var viewModel: ProfileViewModel
     @EnvironmentObject private var auth: AuthViewModel
     @State private var showImagePicker = false
     @State private var selectedImage: ImageFromPicker?
@@ -47,9 +48,9 @@ struct ProfileHeaderView: View {
                 Button {
                     showImagePicker = true
                 } label: {
-                    KFImage(URL(string: user.profilePicture!))
+                    KFImage(URL(string: viewModel.user.profilePicture!))
                         .profileImageModifier(width: 80, height: 80)
-                }.disabled(!user.isCurrentUser)
+                }.disabled(!viewModel.user.isCurrentUser)
 
                 
                 Spacer()
@@ -61,7 +62,7 @@ struct ProfileHeaderView: View {
                 }
             }
             
-            Text(user.fullName)
+            Text(viewModel.user.fullName)
                 .font(.system(size: 15, weight: .semibold))
 //                .padding(.vertical, 8)
             
@@ -75,10 +76,9 @@ struct ProfileHeaderView: View {
                 Text("Logout")
             }
 
-            
             Spacer()
             
-            ProfileActionButtonView(isCurrentUser: user.isCurrentUser)
+            ProfileActionButtonView(viewModel: viewModel)
 //            .border(Color.primary, width: 0.5)
 //            .cornerRadius(2)
 
