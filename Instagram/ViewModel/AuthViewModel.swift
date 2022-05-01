@@ -11,20 +11,16 @@ import FirebaseFirestore
 
 class AuthViewModel: ObservableObject {
     
-    @Published var userSession: FirebaseAuth.User?
-    @Published var userInfos: User? {
-        didSet {
-            print("DIDSET", userInfos)
-        }
+    @Published var userSession: FirebaseAuth.User? {
+        didSet { fetchUserInfos() }
     }
+    @Published var userInfos: User?
 
-    
     static let shared = AuthViewModel()
     
     init(){
         print("AuthViewModel init !")
         userSession = Auth.auth().currentUser
-        fetchUserInfos()
     }
     
     func login(email: String, password: String){
@@ -58,7 +54,7 @@ class AuthViewModel: ObservableObject {
             }
             
             var user = try! snapshot?.data(as: User.self)
-            user?.initProfilePicture()
+//            user?.initProfilePicture()
             self.userInfos = user
         }
     }

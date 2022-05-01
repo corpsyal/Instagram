@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
+    var user: User
+    
     var body: some View {
         ScrollView {
-            ProfileHeaderView()
+            ProfileHeaderView(user: user)
                 .padding(.horizontal)
                 .padding(.top)
             
@@ -19,11 +21,5 @@ struct ProfileView: View {
         }.modifier(DefaultNavigationBar())
         
         
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
     }
 }

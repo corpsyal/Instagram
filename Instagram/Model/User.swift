@@ -17,6 +17,10 @@ struct User: Identifiable, Decodable {
     var profilePictureData: Data?
     @DocumentID var id: String?
     
+    var isCurrentUser: Bool {
+        return AuthViewModel.shared.userInfos?.id == id
+    }
+    
      
     mutating func initProfilePicture(){
         guard let url = profilePicture else { return }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @EnvironmentObject private var auth: AuthViewModel
     
     init(){
         let coloredAppearance = UINavigationBarAppearance()
@@ -22,11 +23,11 @@ struct MainTabView: View {
         coloredTabBarAppearance.backgroundColor = .systemBackground
         UITabBar.appearance().standardAppearance = coloredTabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = coloredTabBarAppearance
-
     }
     
     
     var body: some View {
+        if auth.userInfos != nil {
             TabView {
                 NavigationView(content: {
                     FeedView()
@@ -53,15 +54,13 @@ struct MainTabView: View {
                 }
                 
                 NavigationView(content: {
-                    ProfileView()
+                    ProfileView(user: auth.userInfos!)
                 }).tabItem {
                     Image(systemName: "person")
                 }
             }
             .accentColor(.primary)
-            
-            
-        
+        }
     }
 }
 

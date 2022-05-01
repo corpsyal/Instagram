@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileHeaderView: View {
+    var user: User
     @EnvironmentObject private var auth: AuthViewModel
     @State private var showImagePicker = false
     @State private var selectedImage: ImageFromPicker?
+//    var isCurrentUser: Bool {
+//        return auth.userInfos?.id == user.id
+//    }
     
     func printv(_ data: Any) -> some View {
         print(data)
@@ -42,9 +47,9 @@ struct ProfileHeaderView: View {
                 Button {
                     showImagePicker = true
                 } label: {
-                    ProfilePicture
+                    KFImage(URL(string: user.profilePicture!))
                         .profileImageModifier(width: 80, height: 80)
-                }
+                }.disabled(!user.isCurrentUser)
 
                 
                 Spacer()
@@ -56,7 +61,7 @@ struct ProfileHeaderView: View {
                 }
             }
             
-            Text("Jean Cocteau")
+            Text(user.fullName)
                 .font(.system(size: 15, weight: .semibold))
 //                .padding(.vertical, 8)
             
@@ -73,7 +78,7 @@ struct ProfileHeaderView: View {
             
             Spacer()
             
-            ProfileActionButtonView(isCurrentUser: true)
+            ProfileActionButtonView(isCurrentUser: user.isCurrentUser)
 //            .border(Color.primary, width: 0.5)
 //            .cornerRadius(2)
 
@@ -83,13 +88,5 @@ struct ProfileHeaderView: View {
             ImagePicker(image: $selectedImage)
         }
 
-    }
-}
-
-
-
-struct ProfileHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileHeaderView()
     }
 }
