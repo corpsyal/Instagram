@@ -22,6 +22,18 @@ struct UserService {
         }
     }
     
+    static func unfollow(uid: String, completion: ((Error?) -> Void)?) {
+        guard let currentUid = AuthViewModel.shared.userSession?.uid else { return }
+        
+        FIRESTORE_FOLLOWS_COLLECTION.document(uid).collection("followers").document(currentUid).delete { error in
+            if (error != nil){
+                print(error?.localizedDescription as Any)
+            }
+            
+            FIRESTORE_FOLLOWS_COLLECTION.document(currentUid).collection("following").document(uid).delete(completion: completion)
+        }
+    }
+    
     static func isFollowed(uid: String, completion: @escaping ((Bool)->Void)){
         guard let currentUid = AuthViewModel.shared.userSession?.uid else { return }
         guard currentUid != uid else { return }

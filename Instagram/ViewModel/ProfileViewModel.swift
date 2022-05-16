@@ -24,20 +24,16 @@ class ProfileViewModel: ObservableObject {
     }
     
     func unfollow(){
-        print("Unfollow user...")
+        guard let uid = user.id else { return }
+        UserService.unfollow(uid: uid) { _ in
+            self.checkIfUserIsFollowed()
+        }
     }
     
     func checkIfUserIsFollowed(){
         guard let uid = user.id else { return }
         UserService.isFollowed(uid: uid) { isFollowed in
             self.user.isFollowed = isFollowed
-        }
-    }
-    
-    func test(){
-        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { (timer) in
-            self.user.fullName = "claude"
-            print("LAAAA")
         }
     }
 }
