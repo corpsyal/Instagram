@@ -20,7 +20,6 @@ class UploadPostViewModel: ObservableObject {
             let data: [String : Any] = [
                 "caption": caption,
                 "imageUrl": url,
-                "likes": 0,
                 "timestamp": Timestamp(date: Date()),
                 "ownerUid": user.id!,
                 "ownerUsername": user.userName,
