@@ -20,8 +20,8 @@ struct DefaultNavigationBar: ViewModifier {
                         .foregroundColor(.primary)
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 200, maxHeight: 100, alignment: .leading)
-                        
-                        
+                    
+                    
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 20) {

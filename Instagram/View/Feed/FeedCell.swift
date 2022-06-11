@@ -6,30 +6,39 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FeedCell: View {
+    @ObservedObject var viewModel: FeedCellViewModel
+    
+    init(viewModel: FeedCellViewModel){
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image("joker")
+                KFImage(URL(string: viewModel.post.ownerImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(18)
                 
-                Text("Joker")
+                Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold))
             }.padding([.leading], 8)
             
-            Image("joker")
+            KFImage(URL(string: viewModel.post.imageUrl))
                 .resizable()
-                .frame(maxHeight: UIScreen.main.bounds.size.width*2)
-                .scaledToFit()
+                .scaledToFill()
+                .frame(maxHeight: UIScreen.main.bounds.size.width)
                 .clipped()
             
             HStack(spacing: 16) {
-                Button(action: { }, label: {
+                Button(action: {
+                    (viewModel.post.didLike ?? false) ? viewModel.unlike() : viewModel.like()
+                }, label: {
                     Image(systemName: "heart")
                         .resizable()
 //                        .scaledToFill()
@@ -59,13 +68,13 @@ struct FeedCell: View {
             .padding(.leading, 8)
             .foregroundColor(.primary)
             
-            Text("3 likes")
+            Text("\(viewModel.post.likes) likes")
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 1)
             
             HStack {
-                Text("joker").font(.system(size: 14, weight: .semibold)) + Text(" Il suffit d’un seul mauvais jour pour que l’homme le plus sain d’esprit sombre dans la folie. La folie est la distance qui sépare le monde de l’endroit où je vis. J’ai juste passé une mauvaise journée.").font(.system(size: 15))
+                Text(viewModel.post.ownerUsername).font(.system(size: 14, weight: .semibold)) + Text(" \(viewModel.post.caption)").font(.system(size: 15))
             }
             .padding(.horizontal, 8)
             .padding(.bottom, 1)
@@ -76,13 +85,5 @@ struct FeedCell: View {
                 .padding(.leading, 8)
             
         }
-    }
-}
-
-struct FeedCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedCell()
-            .previewDevice("iPhone 12")
-            .preferredColorScheme(.light)
     }
 }

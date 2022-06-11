@@ -21,7 +21,7 @@ struct SearchView: View {
                 if (isSearchMode){
                     UserListView(users: searchViewModel.filterUsers(query: searText))
                 } else {
-                    PostGridView()
+                    PostGridView(config: .explore)
                 }
                                 
             }

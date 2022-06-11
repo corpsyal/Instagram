@@ -14,14 +14,28 @@ struct ImageFromPicker {
     var uiImage: UIImage
 }
 
+enum UploadType {
+    case profile
+    case post
+    
+    func filePath(fileName: String) -> StorageReference {
+        switch self {
+        case .profile:
+            return Storage.storage().reference(withPath: "/profile_images/\(fileName)")
+        case .post:
+            return Storage.storage().reference(withPath: "/post_images/\(fileName)")
+        }
+    }
+}
+
 struct ImageUploader {
-    static func uploadImage(image pickedImage: ImageFromPicker, completion: @escaping (String) -> Void){
+    static func uploadImage(image pickedImage: ImageFromPicker, type: UploadType, completion: @escaping (String) -> Void){
         
         guard let imageData: Data = pickedImage.uiImage.jpegData(compressionQuality: 0.2) else { return }
         let fileName = "\(NSUUID().uuidString).\(pickedImage.pathExtension)"
         
         
-        let ref = Storage.storage().reference(withPath: "/profiles_images/\(fileName)")
+        let ref = type.filePath(fileName: fileName)
         
         ref.putData(imageData, metadata: nil) { metaData, error in
             if error != nil {

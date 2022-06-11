@@ -10,20 +10,19 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject private var auth: AuthViewModel
     
+    init(){
+        print("ContentView")
+    }
+    
     var body: some View {
         Group {
-            if auth.userSession == nil{
-                LoginView()
-            } else {
+            if auth.isLoading == true {
+                LauchScreenView()
+            } else if auth.user != nil{
                 MainTabView()
+            } else {
+                LoginView()
             }
         }
-        
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

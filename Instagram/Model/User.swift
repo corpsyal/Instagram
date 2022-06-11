@@ -19,7 +19,7 @@ struct User: Identifiable, Decodable {
     var isFollowed: Bool?
     
     var isCurrentUser: Bool {
-        return AuthViewModel.shared.userInfos?.id == id
+        return AuthViewModel.shared.user?.id == id
     }
     
      

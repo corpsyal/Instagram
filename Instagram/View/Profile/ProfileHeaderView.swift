@@ -25,7 +25,7 @@ struct ProfileHeaderView: View {
 
     
     private var ProfilePicture: Image  {
-        guard let imageData = auth.userInfos?.profilePictureData else {
+        guard let imageData = auth.user?.profilePictureData else {
             return Image("joker")
         }
         
@@ -35,7 +35,7 @@ struct ProfileHeaderView: View {
     
     func uploadNewImage(){
         guard let image = selectedImage else { return }
-        ImageUploader.uploadImage(image: image) { imageUrl in
+        ImageUploader.uploadImage(image: image, type: .profile) { imageUrl in
             auth.updateProfilePicture(urlString: imageUrl) {
                 auth.fetchUserInfos()
             }

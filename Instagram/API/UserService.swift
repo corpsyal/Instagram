@@ -7,10 +7,12 @@
 
 import Foundation
 
+typealias FireStoreCompletion = ((Error?) -> Void)?
+
 struct UserService {
     
-    static func follow(uid: String, completion: ((Error?) -> Void)?){
-        guard let currentUid = AuthViewModel.shared.userSession?.uid else { return }
+    static func follow(uid: String, completion: FireStoreCompletion){
+        guard let currentUid = AuthViewModel.shared.user?.id else { return }
         
         FIRESTORE_FOLLOWS_COLLECTION.document(uid).collection("followers").document(currentUid).setData([:]) { error in
             if (error != nil){
@@ -22,8 +24,8 @@ struct UserService {
         }
     }
     
-    static func unfollow(uid: String, completion: ((Error?) -> Void)?) {
-        guard let currentUid = AuthViewModel.shared.userSession?.uid else { return }
+    static func unfollow(uid: String, completion: FireStoreCompletion) {
+        guard let currentUid = AuthViewModel.shared.user?.id else { return }
         
         FIRESTORE_FOLLOWS_COLLECTION.document(uid).collection("followers").document(currentUid).delete { error in
             if (error != nil){
@@ -35,7 +37,7 @@ struct UserService {
     }
     
     static func isFollowed(uid: String, completion: @escaping ((Bool)->Void)){
-        guard let currentUid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let currentUid = AuthViewModel.shared.user?.id else { return }
         guard currentUid != uid else { return }
         
         let document = FIRESTORE_FOLLOWS_COLLECTION.document(currentUid).collection("following").document(uid)

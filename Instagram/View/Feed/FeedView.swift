@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct FeedView: View {
+    @ObservedObject var viewModel = FeedViewModel()
+    
+    init(){
+        print("INSIDE!!!")
+        print(viewModel.posts)
+    }
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 32) {
-                ForEach(0..<10) {_ in
-                    FeedCell()
+                ForEach(viewModel.posts) { post in
+                    FeedCell(viewModel: FeedCellViewModel(post: post))
                 }
             }.padding(.top)
         }.modifier(DefaultNavigationBar())
         
-    }
-}
-
-struct FeedView_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedView()
     }
 }

@@ -6,15 +6,24 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PostGridView: View {
+    @ObservedObject var viewModel: PostGridViewModel
+    
     let items = [GridItem(), GridItem(), GridItem()]
     let width = UIScreen.main.bounds.width / 3
+    
+    init(config: PostGridType){
+        self.viewModel = PostGridViewModel(config: config)
+    }
+    
+    
     var body: some View {
         LazyVGrid(columns: items, spacing: 2) {
-            ForEach(0..<8){_ in
+            ForEach(viewModel.posts){ post in
                 NavigationLink(destination: FeedView()) {
-                    Image("joker")
+                    KFImage(URL(string: post.imageUrl))
                         .resizable()
                         .scaledToFill()
                         .frame(width: width, height: width)
@@ -22,11 +31,5 @@ struct PostGridView: View {
                 }
             }
         }
-    }
-}
-
-struct PostGridView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostGridView()
     }
 }

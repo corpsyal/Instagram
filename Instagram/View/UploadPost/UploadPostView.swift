@@ -9,9 +9,29 @@ import SwiftUI
 
 struct UploadPostView: View {
     @State private var selectedImage: ImageFromPicker?
-    @State private var postImage: Image?
+//    @State private var postImage: Image?
     @State private var caption: String = ""
     @State private var presentImagePicker = false
+    @ObservedObject var viewModel = UploadPostViewModel()
+    @Binding var currentTab: MainTabs
+    
+    func uploadPost(){
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil
+        )
+        
+        guard let image = selectedImage else { return }
+        
+        viewModel.uploadPost(image: image, caption: caption) { _ in
+            cleanView()
+            currentTab = .home
+        }
+    }
+    
+    func cleanView(){
+        caption = ""
+        selectedImage = nil
+    }
     
     var body: some View {
         VStack {
@@ -35,11 +55,19 @@ struct UploadPostView: View {
                         .clipped()
                         
                     
-                    TextField("Enter your caption...", text: $caption)
+//                    if caption == "" {
+//                        TextField("Enter your caption here...", text: $caption)
+//                    } else {
+//                        TextEditor(text: $caption)
+//                            .frame(maxHeight: 100)
+//                    }
+                    
+                    TextArea(text: $caption, placeholder: "Enter your caption here...")
+                    
                 }
                 
                 Button {
-                    
+                    uploadPost()
                 } label: {
                     Text("Share")
                         .font(.system(size: 15, weight: .semibold))
@@ -61,14 +89,15 @@ struct UploadPostView: View {
         .padding(16)
         .sheet(isPresented: $presentImagePicker, onDismiss: nil, content: {
             ImagePicker(image: $selectedImage)
-        }).onDisappear {
-            selectedImage = nil
+        })
+        .onDisappear {
+            cleanView()
         }
     }
 }
 
-struct UploadPostView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadPostView()
-    }
-}
+//struct UploadPostView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UploadPostView()
+//    }
+//}

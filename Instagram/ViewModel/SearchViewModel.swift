@@ -24,11 +24,10 @@ class SearchViewModel: ObservableObject {
     func fetchUsers(){
         FIRESTORE_USERS_COLLECTION.getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
-            
             self.users = documents.compactMap({ try? $0.data(as: User.self) })
-            
         }
     }
+    
     
     func filterUsers(query: String) -> [User] {
         if query.isEmpty { return users }
