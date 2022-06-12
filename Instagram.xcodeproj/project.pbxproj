@@ -55,6 +55,10 @@
 		93DCCE0628145CE50084286A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 93DCCE0528145CE50084286A /* FirebaseStorage */; };
 		93DCCE08281488930084286A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCCE07281488930084286A /* SearchViewModel.swift */; };
 		93EC8BD62854ECDA00526B85 /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BD52854ECDA00526B85 /* FeedCellViewModel.swift */; };
+		93EC8BD828562D2C00526B85 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BD728562D2C00526B85 /* CommentsView.swift */; };
+		93EC8BDA28562D3F00526B85 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BD928562D3F00526B85 /* CommentCell.swift */; };
+		93EC8BDC28562D5E00526B85 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BDB28562D5E00526B85 /* CommentViewModel.swift */; };
+		93EC8BDE2856358A00526B85 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BDD2856358A00526B85 /* CustomInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +105,10 @@
 		93C47ADD27E7D5EC0091FA2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		93DCCE07281488930084286A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		93EC8BD52854ECDA00526B85 /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
+		93EC8BD728562D2C00526B85 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		93EC8BD928562D3F00526B85 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		93EC8BDB28562D5E00526B85 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		93EC8BDD2856358A00526B85 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +203,7 @@
 				93935282283D07E400B25AB9 /* FeedViewModel.swift */,
 				931496802845088400122A5A /* PostGridViewModel.swift */,
 				93EC8BD52854ECDA00526B85 /* FeedCellViewModel.swift */,
+				93EC8BDB28562D5E00526B85 /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 				93B164CA27D7AA31006F4C61 /* PostGridView.swift */,
 				93B164CC27D7BB1C006F4C61 /* UserListView.swift */,
 				93B164CE27D7BB24006F4C61 /* UserCell.swift */,
+				93EC8BDD2856358A00526B85 /* CustomInputView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -274,6 +284,8 @@
 		93AF816B27D523890098B134 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				93EC8BD728562D2C00526B85 /* CommentsView.swift */,
+				93EC8BD928562D3F00526B85 /* CommentCell.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -393,12 +405,14 @@
 			files = (
 				931496812845088400122A5A /* PostGridViewModel.swift in Sources */,
 				93AF817027D523CE0098B134 /* FeedView.swift in Sources */,
+				93EC8BDE2856358A00526B85 /* CustomInputView.swift in Sources */,
 				93B164CF27D7BB24006F4C61 /* UserCell.swift in Sources */,
 				93B683DC281EE7AA00606590 /* ProfileViewModel.swift in Sources */,
 				938258B627F4FC2B00ABE85E /* ImageUploader.swift in Sources */,
 				93AF817227D5241A0098B134 /* UploadPostView.swift in Sources */,
 				93B164CB27D7AA31006F4C61 /* PostGridView.swift in Sources */,
 				93AC298B27DD192700F651DD /* ProfileUserStatView.swift in Sources */,
+				93EC8BDC28562D5E00526B85 /* CommentViewModel.swift in Sources */,
 				9359C24F2833F5F900275122 /* TextArea.swift in Sources */,
 				93AF815127D51DD60098B134 /* ContentView.swift in Sources */,
 				9362D685280347A3003FE93D /* Constants.swift in Sources */,
@@ -411,11 +425,13 @@
 				93AC298927DD0E4B00F651DD /* ProfileHeaderView.swift in Sources */,
 				93AF817427D5243A0098B134 /* ProfileView.swift in Sources */,
 				93C47ADA27E7C49E0091FA2F /* RegistrationView.swift in Sources */,
+				93EC8BD828562D2C00526B85 /* CommentsView.swift in Sources */,
 				93935283283D07E400B25AB9 /* FeedViewModel.swift in Sources */,
 				93B164CD27D7BB1C006F4C61 /* UserListView.swift in Sources */,
 				93AF816627D5226F0098B134 /* MainTabView.swift in Sources */,
 				93EC8BD62854ECDA00526B85 /* FeedCellViewModel.swift in Sources */,
 				938021C227D7A0CC00AC2EB2 /* SearchBar.swift in Sources */,
+				93EC8BDA28562D3F00526B85 /* CommentCell.swift in Sources */,
 				936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */,
 				93AF817627D524490098B134 /* NotificationsView.swift in Sources */,
 				93A04CC027E8E9A6009B271A /* AuthViewModel.swift in Sources */,
