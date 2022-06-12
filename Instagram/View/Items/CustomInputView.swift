@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomInputView: View {
     @Binding var inputText: String
+    let action: () -> Void
+    
     var body: some View {
         
         VStack(spacing: 0) {
@@ -22,10 +24,8 @@ struct CustomInputView: View {
                     .textFieldStyle(.plain)
                     .frame(minHeight: 30)
                     
-                Button {
-                    print("Send")
-                } label: {
-                    Text("Send")
+                Button(action: action) {
+                    Text("Send").fontWeight(.semibold)
                 }
 
             }

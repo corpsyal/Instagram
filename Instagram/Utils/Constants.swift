@@ -13,3 +13,5 @@ let FIRESTORE_POSTS_COLLECTION = Firestore.firestore().collection("posts")
 
 let FIRESTORE_POST_LIKES_COLLECTION = "likes"
 let FIRESTORE_USER_LIKES_COLLECTION = "likes"
+
+let FIRESTORE_POST_COMMENTS_COLLECTION = "comments"

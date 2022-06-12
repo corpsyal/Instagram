@@ -59,6 +59,7 @@
 		93EC8BDA28562D3F00526B85 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BD928562D3F00526B85 /* CommentCell.swift */; };
 		93EC8BDC28562D5E00526B85 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BDB28562D5E00526B85 /* CommentViewModel.swift */; };
 		93EC8BDE2856358A00526B85 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BDD2856358A00526B85 /* CustomInputView.swift */; };
+		93EC8BE02856472900526B85 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC8BDF2856472900526B85 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		93EC8BD928562D3F00526B85 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		93EC8BDB28562D5E00526B85 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		93EC8BDD2856358A00526B85 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
+		93EC8BDF2856472900526B85 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			children = (
 				937F2A68280F12F50063EC25 /* User.swift */,
 				93935280283D04A700B25AB9 /* Post.swift */,
+				93EC8BDF2856472900526B85 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				93EC8BDA28562D3F00526B85 /* CommentCell.swift in Sources */,
 				936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */,
 				93AF817627D524490098B134 /* NotificationsView.swift in Sources */,
+				93EC8BE02856472900526B85 /* Comment.swift in Sources */,
 				93A04CC027E8E9A6009B271A /* AuthViewModel.swift in Sources */,
 				93AC298D27DD1F9F00F651DD /* ProfileActionButtonView.swift in Sources */,
 				93DCCE08281488930084286A /* SearchViewModel.swift in Sources */,

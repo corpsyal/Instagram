@@ -8,20 +8,27 @@
 import SwiftUI
 
 struct CommentsView: View {
+    @ObservedObject var viewModel: CommentViewModel
     @State var text: String = ""
+    
+    func uploadComment(){
+        viewModel.uploadComment(commentText: text) { _ in
+            viewModel.fetchComments()
+        }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 16) {
-                    ForEach(0..<10) { _ in
-                        CommentCell()
+                    ForEach(viewModel.comments) { comment in
+                        CommentCell(comment: comment)
                             .padding(.horizontal)
                     }
                 }
                 
             }.padding(.top, 8)
-            CustomInputView(inputText: $text)
+            CustomInputView(inputText: $text, action: uploadComment)
         }
     }
 }
