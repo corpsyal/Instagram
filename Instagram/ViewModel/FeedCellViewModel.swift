@@ -34,6 +34,7 @@ class FeedCellViewModel: ObservableObject {
                     .setData([:]) {_ in
                         self.getLikes()
                         self.checkIfUserLikePost()
+                        NotificationViewModel.uploadNotification(toUid: self.post.ownerUid, type: .like, post: self.post)
                     }
         }
         

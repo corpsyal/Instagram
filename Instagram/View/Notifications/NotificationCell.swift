@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotificationCell: View {
-    @State private var showPostImage: Bool = false
+    @State private var showPostImage: Bool = true
     
     var body: some View {
         HStack(alignment: .center, spacing: 8) {

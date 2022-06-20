@@ -15,6 +15,8 @@
 		9362D685280347A3003FE93D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9362D684280347A3003FE93D /* Constants.swift */; };
 		936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936425CF27E63FE70087DA3E /* CustomTextField.swift */; };
 		937F2A69280F12F50063EC25 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F2A68280F12F50063EC25 /* User.swift */; };
+		938021B72860B0370041E396 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938021B62860B0370041E396 /* Notification.swift */; };
+		938021B92860B57D0041E396 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938021B82860B57D0041E396 /* NotificationViewModel.swift */; };
 		938021C227D7A0CC00AC2EB2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938021C127D7A0CC00AC2EB2 /* SearchBar.swift */; };
 		938101552832DEB5008F51F3 /* UploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938101542832DEB5008F51F3 /* UploadPostViewModel.swift */; };
 		938258B627F4FC2B00ABE85E /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938258B527F4FC2B00ABE85E /* ImageUploader.swift */; };
@@ -72,6 +74,8 @@
 		9362D684280347A3003FE93D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		936425CF27E63FE70087DA3E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		937F2A68280F12F50063EC25 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		938021B62860B0370041E396 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		938021B82860B57D0041E396 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		938021C127D7A0CC00AC2EB2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		938101542832DEB5008F51F3 /* UploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewModel.swift; sourceTree = "<group>"; };
 		938258B527F4FC2B00ABE85E /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				931496802845088400122A5A /* PostGridViewModel.swift */,
 				93EC8BD52854ECDA00526B85 /* FeedCellViewModel.swift */,
 				93EC8BDB28562D5E00526B85 /* CommentViewModel.swift */,
+				938021B82860B57D0041E396 /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				937F2A68280F12F50063EC25 /* User.swift */,
 				93935280283D04A700B25AB9 /* Post.swift */,
 				93EC8BDF2856472900526B85 /* Comment.swift */,
+				938021B62860B0370041E396 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				931496812845088400122A5A /* PostGridViewModel.swift in Sources */,
+				938021B92860B57D0041E396 /* NotificationViewModel.swift in Sources */,
 				93AF817027D523CE0098B134 /* FeedView.swift in Sources */,
 				93EC8BDE2856358A00526B85 /* CustomInputView.swift in Sources */,
 				93B164CF27D7BB24006F4C61 /* UserCell.swift in Sources */,
@@ -445,6 +452,7 @@
 				93AF817A27D52CC80098B134 /* FeedCell.swift in Sources */,
 				93B683DE281EF17600606590 /* UserService.swift in Sources */,
 				93AC298727DD036600F651DD /* NotificationCell.swift in Sources */,
+				938021B72860B0370041E396 /* Notification.swift in Sources */,
 				9323C6EC27E53578009EBDA5 /* LoginView.swift in Sources */,
 				93AC298527DB9A7400F651DD /* Extensions.swift in Sources */,
 				938101552832DEB5008F51F3 /* UploadPostViewModel.swift in Sources */,
