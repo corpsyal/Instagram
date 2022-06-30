@@ -15,15 +15,18 @@ class FeedViewModel: ObservableObject {
         fetchPosts()
     }
     
-    func fetchPosts(){
+    func fetchPosts(done: (() -> Void)? = nil ){
+        print("Fetching posts...")
         FIRESTORE_POSTS_COLLECTION.order(by: "timestamp", descending: true).getDocuments { snapshots, _ in
             guard let documents = snapshots?.documents else { return }
-            print(documents.count)
             
             self.posts = documents.compactMap({ snapshop in
                 return try! snapshop.data(as: Post.self)
             })
-            print(self.posts, "posts")
+            
+            if let done = done {
+                done()
+            }
         }
     }
 }

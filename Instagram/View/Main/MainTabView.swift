@@ -19,45 +19,42 @@ struct MainTabView: View {
     @EnvironmentObject private var auth: AuthViewModel
     @State var currentTab: MainTabs = .home
     
-    init(){
-        print("MAINNN")
-    }
-    
     var body: some View {
-            TabView(selection: $currentTab) {
-                NavigationView(content: {
-                    FeedView()
-                }).tabItem {
-                    Image(systemName: "house")
-                }.tag(MainTabs.home)
-
-                NavigationView(content: {
-                    SearchView()
-                }).tabItem {
-                    Image(systemName: "magnifyingglass")
-                }.tag(MainTabs.search)
-
-                NavigationView(content: {
-                    UploadPostView(currentTab: $currentTab)
-                }).tabItem {
-                    Image(systemName: "plus.square")
-                }.tag(MainTabs.newPost)
-
-                NavigationView(content: {
-                    NotificationsView()
-                }).tabItem {
-                    Image(systemName: "heart")
-                }.tag(MainTabs.notifications)
-                
-                NavigationView(content: {
-                    if auth.user != nil {
-                        ProfileView(user: auth.user!)
-                    }
-                }).tabItem {
-                    Image(systemName: "person")
-                }.tag(MainTabs.profile)
-            }
-            .accentColor(.primary)
+        
+        TabView(selection: $currentTab) {
+            NavigationView(content: {
+                FeedView()
+            }).tabItem {
+                Image(systemName: "house")
+            }.tag(MainTabs.home)
+            
+            NavigationView(content: {
+                SearchView()
+            }).tabItem {
+                Image(systemName: "magnifyingglass")
+            }.tag(MainTabs.search)
+            
+            NavigationView(content: {
+                UploadPostView(currentTab: $currentTab)
+            }).tabItem {
+                Image(systemName: "plus.square")
+            }.tag(MainTabs.newPost)
+            
+            NavigationView(content: {
+                NotificationsView()
+            }).tabItem {
+                Image(systemName: "heart")
+            }.tag(MainTabs.notifications)
+            
+            NavigationView(content: {
+                if auth.user != nil {
+                    ProfileView(user: auth.user!)
+                }
+            }).tabItem {
+                Image(systemName: "person")
+            }.tag(MainTabs.profile)
+        }
+        .accentColor(.primary)
         
     }
 }

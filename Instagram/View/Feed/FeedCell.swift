@@ -36,7 +36,11 @@ struct FeedCell: View {
                 
                 Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold))
-            }.padding([.leading], 8)
+                    
+            }
+            .padding([.leading], 8)
+            
+            
             
             KFImage(URL(string: viewModel.post.imageUrl))
                 .resizable()
@@ -44,6 +48,7 @@ struct FeedCell: View {
                 .frame(maxHeight: UIScreen.main.bounds.size.width)
                 .clipped()
                 .padding(.bottom, 8)
+                
             
             HStack(spacing: 16) {
                 Button(action: {

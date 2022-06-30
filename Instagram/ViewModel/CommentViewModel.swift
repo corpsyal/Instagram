@@ -35,7 +35,13 @@ class CommentViewModel: ObservableObject {
         FIRESTORE_POSTS_COLLECTION
             .document(post.id!)
             .collection(FIRESTORE_POST_COMMENTS_COLLECTION)
-            .addDocument(data: data, completion: completion)
+            .addDocument(data: data) { error in
+                NotificationViewModel.uploadNotification(toUid: self.post.ownerUid, type: .comment, post: self.post)
+                
+                if let completion = completion {
+                    completion(error)
+                }
+            }
         
     }
     

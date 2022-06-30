@@ -7,22 +7,19 @@
 
 import SwiftUI
 
+
 struct FeedView: View {
     @ObservedObject var viewModel = FeedViewModel()
     
-    init(){
-        print("INSIDE!!!")
-        print(viewModel.posts)
-    }
-    
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            LazyVStack(spacing: 32) {
+        RefreshableScrollView(showsIndicators: false, onRefresh: viewModel.fetchPosts) {
+            VStack(spacing: 32) {
                 ForEach(viewModel.posts) { post in
                     FeedCell(viewModel: FeedCellViewModel(post: post))
                 }
-            }.padding(.top)
-        }.modifier(DefaultNavigationBar())
-        
+            }
+            .padding(.top)
+        }
+        .modifier(DefaultNavigationBar())
     }
 }

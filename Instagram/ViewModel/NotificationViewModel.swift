@@ -11,8 +11,19 @@ import Firebase
 class NotificationViewModel: ObservableObject {
     @Published var notifications: [Notification] = []
     
+    init(){
+        fetchNotifications()
+    }
+    
     func fetchNotifications(){
+        guard let user = AuthViewModel.shared.user else { return }
+        guard let uid = user.id else { return }
         
+        FIRESTORE_USERS_COLLECTION.document(uid).collection(FIRESTORE_USER_NOTIFICATIONS_COLLECTION).getDocuments { snapshots, _ in
+            
+            guard let documents = snapshots?.documents else { return }
+            self.notifications = documents.compactMap({ try! $0.data(as: Notification.self) })
+        }
     }
     
     static func uploadNotification(toUid: String, type: NotificationType, post: Post?){
