@@ -13,6 +13,7 @@ struct FeedView: View {
     
     var body: some View {
         RefreshableScrollView(showsIndicators: false, onRefresh: viewModel.fetchPosts) {
+            StoriesView()
             VStack(spacing: 32) {
                 ForEach(viewModel.posts) { post in
                     FeedCell(viewModel: FeedCellViewModel(post: post))

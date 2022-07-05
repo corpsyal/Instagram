@@ -46,6 +46,11 @@
 		93B164CF27D7BB24006F4C61 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B164CE27D7BB24006F4C61 /* UserCell.swift */; };
 		93B683DC281EE7AA00606590 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B683DB281EE7AA00606590 /* ProfileViewModel.swift */; };
 		93B683DE281EF17600606590 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B683DD281EF17600606590 /* UserService.swift */; };
+		93B8D8DB28706FFD00BB6504 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8D8DA28706FFD00BB6504 /* StoriesView.swift */; };
+		93B8D8DF2870703600BB6504 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8D8DE2870703600BB6504 /* StoryCell.swift */; };
+		93B8D8E128743B2000BB6504 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8D8E028743B2000BB6504 /* StoryView.swift */; };
+		93B8D8E32874733E00BB6504 /* StoryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8D8E22874733E00BB6504 /* StoryProgressView.swift */; };
+		93B8D8E52874AA2600BB6504 /* AnimationObserverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8D8E42874AA2600BB6504 /* AnimationObserverModifier.swift */; };
 		93C47ADA27E7C49E0091FA2F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C47AD927E7C49E0091FA2F /* RegistrationView.swift */; };
 		93C47ADE27E7D5EC0091FA2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C47ADD27E7D5EC0091FA2F /* GoogleService-Info.plist */; };
 		93C47AEC27E7D7E00091FA2F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 93C47AEB27E7D7E00091FA2F /* Kingfisher */; };
@@ -107,6 +112,11 @@
 		93B164CE27D7BB24006F4C61 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		93B683DB281EE7AA00606590 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		93B683DD281EF17600606590 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		93B8D8DA28706FFD00BB6504 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
+		93B8D8DE2870703600BB6504 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
+		93B8D8E028743B2000BB6504 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		93B8D8E22874733E00BB6504 /* StoryProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryProgressView.swift; sourceTree = "<group>"; };
+		93B8D8E42874AA2600BB6504 /* AnimationObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationObserverModifier.swift; sourceTree = "<group>"; };
 		93C47AD927E7C49E0091FA2F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		93C47ADD27E7D5EC0091FA2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		93D04D432864FCAB0034C11C /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
@@ -198,6 +208,8 @@
 				9362D684280347A3003FE93D /* Constants.swift */,
 				9359C24E2833F5F900275122 /* TextArea.swift */,
 				93D04D432864FCAB0034C11C /* RefreshableScrollView.swift */,
+				93B8D8E22874733E00BB6504 /* StoryProgressView.swift */,
+				93B8D8E42874AA2600BB6504 /* AnimationObserverModifier.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -307,6 +319,9 @@
 			children = (
 				93AF816F27D523CE0098B134 /* FeedView.swift */,
 				93AF817927D52CC80098B134 /* FeedCell.swift */,
+				93B8D8DA28706FFD00BB6504 /* StoriesView.swift */,
+				93B8D8DE2870703600BB6504 /* StoryCell.swift */,
+				93B8D8E028743B2000BB6504 /* StoryView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -421,6 +436,7 @@
 				93EC8BDE2856358A00526B85 /* CustomInputView.swift in Sources */,
 				93B164CF27D7BB24006F4C61 /* UserCell.swift in Sources */,
 				93B683DC281EE7AA00606590 /* ProfileViewModel.swift in Sources */,
+				93B8D8E128743B2000BB6504 /* StoryView.swift in Sources */,
 				938258B627F4FC2B00ABE85E /* ImageUploader.swift in Sources */,
 				93AF817227D5241A0098B134 /* UploadPostView.swift in Sources */,
 				93B164CB27D7AA31006F4C61 /* PostGridView.swift in Sources */,
@@ -430,9 +446,11 @@
 				93AF815127D51DD60098B134 /* ContentView.swift in Sources */,
 				9362D685280347A3003FE93D /* Constants.swift in Sources */,
 				93AF814F27D51DD60098B134 /* InstagramApp.swift in Sources */,
+				93B8D8DF2870703600BB6504 /* StoryCell.swift in Sources */,
 				93149686284603BE00122A5A /* LauchScreenView.swift in Sources */,
 				93A04CC227E90516009B271A /* DefaultNavigationBar.swift in Sources */,
 				93935281283D04A700B25AB9 /* Post.swift in Sources */,
+				93B8D8E32874733E00BB6504 /* StoryProgressView.swift in Sources */,
 				93AC298F27DE575F00F651DD /* ImagePicker.swift in Sources */,
 				93AF817827D524D50098B134 /* SearchView.swift in Sources */,
 				93AC298927DD0E4B00F651DD /* ProfileHeaderView.swift in Sources */,
@@ -447,11 +465,13 @@
 				93EC8BDA28562D3F00526B85 /* CommentCell.swift in Sources */,
 				936425D027E63FE70087DA3E /* CustomTextField.swift in Sources */,
 				93AF817627D524490098B134 /* NotificationsView.swift in Sources */,
+				93B8D8DB28706FFD00BB6504 /* StoriesView.swift in Sources */,
 				93EC8BE02856472900526B85 /* Comment.swift in Sources */,
 				93A04CC027E8E9A6009B271A /* AuthViewModel.swift in Sources */,
 				93AC298D27DD1F9F00F651DD /* ProfileActionButtonView.swift in Sources */,
 				93DCCE08281488930084286A /* SearchViewModel.swift in Sources */,
 				937F2A69280F12F50063EC25 /* User.swift in Sources */,
+				93B8D8E52874AA2600BB6504 /* AnimationObserverModifier.swift in Sources */,
 				93AF817A27D52CC80098B134 /* FeedCell.swift in Sources */,
 				93B683DE281EF17600606590 /* UserService.swift in Sources */,
 				93AC298727DD036600F651DD /* NotificationCell.swift in Sources */,

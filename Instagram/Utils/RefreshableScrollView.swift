@@ -94,7 +94,6 @@ struct RefreshableScrollView<Content: View>: View {
             opacity = (y / 100) * 2.3
             
             if y >= THRESOLD && state == .waiting {
-                state = .loading
                 refresh()
             }
             
