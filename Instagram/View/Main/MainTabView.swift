@@ -29,7 +29,7 @@ struct MainTabView: View {
         
         TabView(selection: $currentTab) {
             NavigationView(content: {
-                FeedView()
+                FeedView(config: .all)
                     .mainView(currentTab: $currentTab)
             }).tabItem {
                 Image(systemName: "house")

@@ -7,15 +7,36 @@
 
 import Foundation
 
+enum FeedViewType {
+    case all
+    case profile(String)
+}
+
 
 class FeedViewModel: ObservableObject {
     @Published var posts: [Post] = []
+    private let uid: String?
     
-    init(){
+    init(config: FeedViewType){
+        switch config {
+        case .all:
+            self.uid = nil
+        case .profile(let uid):
+            self.uid = uid
+        }
+        
         fetchPosts()
     }
     
-    func fetchPosts(done: (() -> Void)? = nil ){
+    func fetchPosts(done: (() -> Void)? = nil ) {
+        if let uid = self.uid {
+            fetchPostForUser(uid: uid, done: done)
+        } else {
+            fetchAllPosts(done: done)
+        }
+    }
+    
+    private func fetchAllPosts(done: (() -> Void)? = nil ){
         print("Fetching posts...")
         FIRESTORE_POSTS_COLLECTION.order(by: "timestamp", descending: true).getDocuments { snapshots, _ in
             guard let documents = snapshots?.documents else { return }
@@ -30,5 +51,20 @@ class FeedViewModel: ObservableObject {
         }
     }
     
-    func fetchPost
+    private func fetchPostForUser(uid: String, done: (() -> Void)? = nil) {
+        print("Fetching posts for uid \(uid)")
+        FIRESTORE_POSTS_COLLECTION
+            .whereField("ownerUid", isEqualTo: uid)
+            .getDocuments { snapshots, _ in
+                guard let documents = snapshots?.documents else { return }
+                
+                self.posts = documents.compactMap({ snapshop in
+                    return try! snapshop.data(as: Post.self)
+                }).sorted(by: { $0.timestamp.compare($1.timestamp) == .orderedDescending })
+                
+                if let done = done {
+                    done()
+                }
+            }
+    }
 }

@@ -9,7 +9,11 @@ import SwiftUI
 
 
 struct FeedView: View {
-    @ObservedObject var viewModel = FeedViewModel()
+    @ObservedObject var viewModel: FeedViewModel
+    
+    init(config: FeedViewType){
+        viewModel = FeedViewModel(config: config)
+    }
     
     var body: some View {
         RefreshableScrollView(showsIndicators: false, onRefresh: viewModel.fetchPosts) {

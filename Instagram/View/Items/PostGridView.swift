@@ -22,7 +22,7 @@ struct PostGridView: View {
     var body: some View {
         LazyVGrid(columns: items, spacing: 2) {
             ForEach(viewModel.posts){ post in
-                NavigationLink(destination: FeedView()) {
+                NavigationLink(destination: FeedView(config: .profile(post.ownerUid))) {
                     KFImage(URL(string: post.imageUrl))
                         .resizable()
                         .scaledToFill()
