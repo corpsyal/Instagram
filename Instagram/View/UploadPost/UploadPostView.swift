@@ -85,7 +85,6 @@ struct UploadPostView: View {
             Spacer()
 
         }
-        .modifier(DefaultNavigationBar())
         .padding(16)
         .sheet(isPresented: $presentImagePicker, onDismiss: nil, content: {
             ImagePicker(image: $selectedImage)

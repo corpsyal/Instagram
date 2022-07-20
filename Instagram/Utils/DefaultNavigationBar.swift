@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct DefaultNavigationBar: ViewModifier {
+    @Binding var currentTab: MainTabs
+    
     func body(content: Content) -> some View {
         content
             .navigationBarTitleDisplayMode(.inline)
@@ -32,7 +34,9 @@ struct DefaultNavigationBar: ViewModifier {
                                 .font(Font.title.weight(.semibold))
                                 .tint(Color.primary)
                         }
-                        Button(action: {}) {
+                        Button(action: {
+                            currentTab = .notifications
+                        }) {
                             Image(systemName: "heart")
                                 .resizable()
                                 .frame(width: 20, height: 20)

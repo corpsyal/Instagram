@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct StoryView: View {
     @Binding var show: Bool
     @State var currentIndex: Int = 0
     @State var stories: [String] = ["sunset", "switzerland"]
     @State var message: String = ""
+    let user: User
     
     var body: some View {
         VStack(spacing: 20) {
@@ -35,10 +37,10 @@ struct StoryView: View {
                     }
                     
                     HStack(alignment: .center) {
-                        Image("joker")
+                        KFImage(URL(string: user.profilePicture!))
                             .profileImageModifier(width: 40, height: 40)
                         
-                        Text("Joker")
+                        Text(user.userName)
                             .foregroundColor(.white)
                             .font(.system(size: 15, weight: .semibold))
 

@@ -15,6 +15,12 @@ enum MainTabs {
     case profile
 }
 
+extension View {
+    func mainView(currentTab: Binding<MainTabs>) -> some View {
+        modifier(DefaultNavigationBar(currentTab: currentTab))
+    }
+}
+
 struct MainTabView: View {
     @EnvironmentObject private var auth: AuthViewModel
     @State var currentTab: MainTabs = .home
@@ -24,24 +30,28 @@ struct MainTabView: View {
         TabView(selection: $currentTab) {
             NavigationView(content: {
                 FeedView()
+                    .mainView(currentTab: $currentTab)
             }).tabItem {
                 Image(systemName: "house")
             }.tag(MainTabs.home)
             
             NavigationView(content: {
                 SearchView()
+                    .mainView(currentTab: $currentTab)
             }).tabItem {
                 Image(systemName: "magnifyingglass")
             }.tag(MainTabs.search)
             
             NavigationView(content: {
                 UploadPostView(currentTab: $currentTab)
+                    .mainView(currentTab: $currentTab)
             }).tabItem {
                 Image(systemName: "plus.square")
             }.tag(MainTabs.newPost)
             
             NavigationView(content: {
                 NotificationsView()
+                    .mainView(currentTab: $currentTab)
             }).tabItem {
                 Image(systemName: "heart")
             }.tag(MainTabs.notifications)
@@ -49,6 +59,7 @@ struct MainTabView: View {
             NavigationView(content: {
                 if auth.user != nil {
                     ProfileView(user: auth.user!)
+                        .mainView(currentTab: $currentTab)
                 }
             }).tabItem {
                 Image(systemName: "person")

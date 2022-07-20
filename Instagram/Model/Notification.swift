@@ -21,6 +21,7 @@ struct Notification: Decodable, Identifiable {
     let toUid: String
     let username: String
     
+    
     func toDictionnary() -> [String: Any] {
         return [
             "postID": postID ?? "",
@@ -31,6 +32,10 @@ struct Notification: Decodable, Identifiable {
             "toUid": toUid,
             "username": username,
         ]
+    }
+    
+    func fetchPost(){
+        
     }
 }
 
@@ -43,7 +48,6 @@ extension Notification {
         self.fromUid = user.id!
         self.toUid = toUid
         self.username = user.userName
-        
     }
 }
 

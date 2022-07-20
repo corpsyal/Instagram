@@ -11,15 +11,15 @@ struct NotificationsView: View {
     @StateObject var notificationViewModel = NotificationViewModel()
     
     var body: some View {
-        List(notificationViewModel.notifications)  {_ in
-            NotificationCell()
+        List(notificationViewModel.notifications)  { notification in
+            NotificationCell(notificationCellViewModel: NotificationCellViewModel(notification: notification))
                 .listRowSeparator(.hidden)
         }
         .padding(.top)
         .listStyle(PlainListStyle())
         .refreshable {
             notificationViewModel.fetchNotifications()
-        }.modifier(DefaultNavigationBar())
+        }
         
     }
 }

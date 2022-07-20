@@ -29,4 +29,6 @@ class FeedViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchPost
 }

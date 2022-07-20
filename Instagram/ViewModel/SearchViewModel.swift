@@ -12,11 +12,6 @@ class SearchViewModel: ObservableObject {
     @Published var users: [User] = []
     
     init(){
-//        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { (timer) in
-//            print("HERE !!")
-//            self.users = [User(email: "toto@gg.fr", fullName: "test", profilePicture: "", profilePictureData: nil, id: "fjgdlkgjdlkgj")]
-//        }
-        
         fetchUsers()
     }
     

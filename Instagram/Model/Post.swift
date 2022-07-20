@@ -21,3 +21,4 @@ struct Post: Identifiable, Decodable {
     var likes: Int? = 0
     var didLike: Bool? = false
 }
+

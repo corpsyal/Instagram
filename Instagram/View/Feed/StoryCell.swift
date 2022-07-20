@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 extension Color {
     init(_ hex: UInt, alpha: Double = 1) {
@@ -22,6 +23,7 @@ extension Color {
 struct StoryCell: View {
     
     @State var show: Bool = false
+    let user: User
     
     var body: some View {
         VStack {
@@ -36,8 +38,9 @@ struct StoryCell: View {
                             Circle()
                                 .frame(width: 65, height: 65)
                                 .overlay {
-                                    Image("joker")
+                                    KFImage(URL(string: user.profilePicture!))
                                         .resizable()
+                                        .scaledToFill()
                                         .frame(width: 65, height: 65)
                                         .clipShape(Circle())
                                 }
@@ -48,12 +51,12 @@ struct StoryCell: View {
                     show = true
                 }
             
-            Text("Toto")
+            Text(user.userName)
                 .font(.system(size: 12, weight: .regular))
                 .foregroundColor(.primary)
         }
         .fullScreenCover(isPresented: $show) {
-            StoryView(show: $show)
+            StoryView(show: $show, user: user)
         }
     }
 }

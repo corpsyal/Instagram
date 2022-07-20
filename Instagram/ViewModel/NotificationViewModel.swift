@@ -23,6 +23,8 @@ class NotificationViewModel: ObservableObject {
             
             guard let documents = snapshots?.documents else { return }
             self.notifications = documents.compactMap({ try! $0.data(as: Notification.self) })
+            
+            print(self.notifications, "notifications")
         }
     }
     
