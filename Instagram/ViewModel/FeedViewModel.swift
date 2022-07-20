@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FeedViewType {
+enum FeedViewType: Equatable {
     case all
     case profile(String)
 }

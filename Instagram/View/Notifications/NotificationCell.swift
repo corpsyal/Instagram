@@ -10,17 +10,19 @@ import Kingfisher
 
 struct NotificationCell: View {
     @StateObject var notificationCellViewModel: NotificationCellViewModel
-        
+    
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
-            KFImage(URL(string: notificationCellViewModel.notification.profilePicture))
-                .resizable()
-                .frame(width: 40, height: 40)
-                .scaledToFit()
-                .clipShape(Circle())
-                .clipped()
+                KFImage(URL(string: notificationCellViewModel.notification.profilePicture))
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .scaledToFit()
+                    .clipShape(Circle())
+                    .clipped()
+                
+                Text(notificationCellViewModel.notification.username).font(.system(size: 14, weight: .semibold)) + Text(" \(notificationCellViewModel.notification.type.notificationMessage)").font(.system(size: 15))
             
-            Text(notificationCellViewModel.notification.username).font(.system(size: 14, weight: .semibold)) + Text(" \(notificationCellViewModel.notification.type.notificationMessage)").font(.system(size: 15))
+            
             
             Spacer()
             
@@ -30,6 +32,15 @@ struct NotificationCell: View {
                     .scaledToFill()
                     .frame(width: 40, height: 40)
                     .clipped()
+                    .background {
+                        NavigationLink {
+                            FeedView(config: .profile(post.ownerUid))
+                        } label: {
+                            EmptyView()
+                        }.opacity(0.0)
+                    }
+                
+                
             } else if notificationCellViewModel.notification.type == .follow {
                 Button {
                     
@@ -41,13 +52,13 @@ struct NotificationCell: View {
                         .background(Color(UIColor.systemBlue))
                         .foregroundColor(.white)
                         .clipShape(Capsule())
-                        
+                    
                 }
-
+                
             }
             
         }
-//        .background(Color.red)
+        //        .background(Color.red)
     }
 }
 

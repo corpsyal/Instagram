@@ -10,14 +10,19 @@ import SwiftUI
 
 struct FeedView: View {
     @ObservedObject var viewModel: FeedViewModel
+    private let config: FeedViewType
     
     init(config: FeedViewType){
+        self.config = config
         viewModel = FeedViewModel(config: config)
     }
     
     var body: some View {
         RefreshableScrollView(showsIndicators: false, onRefresh: viewModel.fetchPosts) {
-            StoriesView()
+            if config == .all {
+                StoriesView()
+            }
+            
             VStack(spacing: 32) {
                 ForEach(viewModel.posts) { post in
                     FeedCell(viewModel: FeedCellViewModel(post: post))
